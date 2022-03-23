@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.example.trainingschedule.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_exercises"
+            app:destination="@id/navigation_exercises" />
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_calendar"
+            app:destination="@id/navigation_calendar" />
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_training"
+            app:destination="@id/navigation_training" />
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_settings"
+            app:destination="@id/navigation_settings" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_calendar"
+        android:name="com.example.trainingschedule.ui.calendar.CalendarFragment"
+        android:label="@string/title_calendar"
+        tools:layout="@layout/fragment_calendar" >
+        <action
+            android:id="@+id/action_navigation_calendar_to_navigation_add"
+            app:destination="@id/navigation_add" />
+        <argument
+            android:name="list"
+            app:argType="com.example.trainingschedule.ui.exercises.Exercise[]" />
+        <action
+            android:id="@+id/action_navigation_calendar_to_navigation_home"
+            app:destination="@id/navigation_home" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_add"
+        android:name="com.example.trainingschedule.ui.calendar.AddFragment"
+        android:label="@string/title_calendar"
+        tools:layout="@layout/fragment_edit" >
+        <action
+            android:id="@+id/action_navigation_add_to_navigation_calendar"
+            app:destination="@id/navigation_calendar" />
+        <argument
+            android:name="list"
+            app:argType="com.example.trainingschedule.ui.exercises.Exercise[]" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_training"
+        android:name="com.example.trainingschedule.ui.training.TrainingFragment"
+        android:label="@string/title_training"
+        tools:layout="@layout/fragment_training" >
+        <action
+            android:id="@+id/action_navigation_training_to_navigation_short_exercises"
+            app:destination="@id/navigation_short_exercises" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_short_exercises"
+        android:name="com.example.trainingschedule.ui.training.shortexercises.ShortExercisesFragment"
+        android:label="@string/title_training"
+        tools:layout="@layout/fragment_short_exercises">
+        <argument
+          android:name="id"
+          app:argType="long" />
+     </fragment>
+
+
+    <fragment
+        android:id="@+id/navigation_exercises"
+        android:name="com.example.trainingschedule.ui.exercises.ExercisesFragment"
+        android:label="@string/title_exercises"
+        tools:layout="@layout/fragment_exercises">
+        <action
+            android:id="@+id/action_navigation_exercises_to_navigation_edit"
+            app:destination="@id/navigation_edit" />
+        <action
+            android:id="@+id/action_navigation_exercises_to_navigation_delete"
+            app:destination="@id/navigation_delete" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_delete"
+        android:name="com.example.trainingschedule.ui.exercises.buttons.DeleteFragment"
+        android:label="@string/button_delete"
+        tools:layout="@layout/fragment_delete">
+        <action
+            android:id="@+id/action_navigation_delete_to_navigation_exercises"
+            app:destination="@id/navigation_exercises" />
+        <argument
+            android:name="id"
+            app:argType="long" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_edit"
+        android:name="com.example.trainingschedule.ui.exercises.buttons.EditFragment"
+        android:label="@string/button_edit"
+        tools:layout="@layout/fragment_edit">
+        <argument
+            android:name="exercise"
+            app:argType="com.example.trainingschedule.ui.exercises.Exercise" />
+        <action
+            android:id="@+id/action_navigation_edit_to_navigation_exercises"
+            app:destination="@id/navigation_exercises" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_settings"
+        android:name="com.example.trainingschedule.ui.settings.SettingsFragment"
+        android:label="@string/title_settings"
+        tools:layout="@layout/fragment_settings" />
+</navigation>

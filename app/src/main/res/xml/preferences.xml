@@ -1,0 +1,26 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:title="@string/text_preferences_title_1">
+
+        <ListPreference
+            android:key="font"
+            android:title="@string/text_font_preferences"
+            android:dialogTitle="Choose Font"
+            android:defaultValue="1_value"
+            android:entries="@array/font_entries"
+            android:entryValues="@array/font_values" />
+
+        <CheckBoxPreference
+            android:key="nightmode"
+            android:title="@string/text_nightmode_preferences"
+            android:defaultValue="default_checkbox_preference"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/text_preferences_title_2">
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
